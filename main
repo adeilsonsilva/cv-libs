@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export DIR=$(pwd)
+export DOWNLOAD_DIR=$DIR/downloads/
+
+# Basics
+./scripts/basics
+
+# OpenCV
+# [https://docs.opencv.org/3.4.1/d7/d9f/tutorial_linux_install.html]
+./scripts/opencv
+
+# librealsense
+# [https://github.com/IntelRealSense/librealsense]
+./scripts/librealsense
+
+# Caffe
+# [http://caffe.berkeleyvision.org/installation.html]
+./scripts/caffe
+

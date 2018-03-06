@@ -1,0 +1,33 @@
+#!/bin/bash
+
+cd $DIR
+
+# Why not? :P
+figlet librealsense
+
+# Dependencies
+sudo apt-get install libusb-1.0-0-dev libglfw3-dev
+
+# Cloning repo
+cd $DOWNLOAD_DIR
+git clone https://github.com/IntelRealSense/librealsense
+cd librealsense
+mkdir build
+cd build
+
+# CMake
+cmake ../
+
+# Install
+sudo make uninstall 
+make clean
+make -j2 
+sudo make install
+
+# Video4Linux backend preparation
+cd ..
+sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && udevadm trigger
+sudo apt-get install libssl-dev
+./scripts/patch-realsense-ubuntu-xenial.sh
+

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+cd $DIR
+
+# Why not? :P
+figlet caffe
+
+# Dependencies
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler
+sudo apt-get install --no-install-recommends libboost-all-dev
+sudo apt-get install libopenblas-dev
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+
+# Cloning repo
+cd $DOWNLOAD_DIR
+git clone https://github.com/BVLC/caffe.git
+cd caffe
+
+# Python stuff
+cd python
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+
+# Compile
+cp $DIR/files/caffe/Makefile.config .
+make pycaffe 
+make all -j2
+make test
+make runtest
+
+
