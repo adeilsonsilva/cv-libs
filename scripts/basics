@@ -8,7 +8,7 @@ figlet basics
 # Then install some basic stuff
 echo "Start with the basics."
 echo "Those packages are required by all libs."
-sudo apt-get install git vim cmake pkg-config libgtk-3-dev python python-pip python-dev 
+sudo apt-get install git vim cmake pkg-config libgtk-3-dev python python-pip python-dev python-numpy
 
 # Set Vim as editor for git
 git config --global core.editor "vim"

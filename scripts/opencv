@@ -30,7 +30,7 @@ make -j2 # Number of threads
 sudo make install
 
 # Postinstall stuff
-echo '/usr/local/lib' >> /etc/ld.so.conf.d/opencv.conf
+sudo echo '/usr/local/lib' >> /etc/ld.so.conf.d/opencv.conf
 sudo ldconfig -v
-echo 'PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig' >> /etc/bash.bashrc
-echo 'export PKG_CONFIG_PATH' >> /etc/bash.bashrc
+sudo echo 'PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig' >> /etc/bash.bashrc
+sudo echo 'export PKG_CONFIG_PATH' >> /etc/bash.bashrc
